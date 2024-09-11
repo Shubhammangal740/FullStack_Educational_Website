@@ -1,0 +1,80 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/courseListing.css" />
+<link rel="stylesheet" href="/css/styles.css" />
+<style>
+  .container {
+    margin-left: 3%;
+    z-index: 1000;
+  }
+  nav {
+    display: inline-block;
+    position: absolute;
+  }
+  body {
+    margin-top: 5%;
+    margin-left: 5%;
+  }
+  .crossIcon {
+    height: 20px;
+    width: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  .listcourse-format a {
+    color: rgb(47, 4, 236);
+    margin-left: 15px;
+  }
+</style>
+<body>
+  <%- include('../includes/navigation.ejs') %>
+  <div class="list-course">
+    <h1>All Courses</h1>
+    <div class="listcourse-format-main">
+      <p>Course Image</p>
+      <p>Title</p>
+      <p>Description</p>
+      <p>Instructor</p>
+      <p>Duration</p>
+      <p>Level</p>
+      <p>Edit</p>
+      <p>Remove</p>
+    </div>
+    <div class="listcourse-allcourses">
+      <hr />
+      <!-- Iterate over the courses array and display each course -->
+      <% for (let course of courses) { %>
+      <div class="listcourse-format-main listcourse-format">
+        <img
+          src="<%= course.imageUrl %>"
+          alt="Course Image"
+          class="listcourse-course-icon"
+        />
+        <p><%= course.title %></p>
+        <p><%= course.description %></p>
+        <p><%= course.instructor %></p>
+        <p><%= course.duration %></p>
+        <p><%= course.level %></p>
+        <a href="/update-course/<%= course._id %>?edit=true">Edit</a>
+        <!-- Create a form to handle the POST request for deleting a course -->
+        <form
+          action="/delete-course/<%= course._id %>"
+          method="POST"
+          style="display: inline"
+        >
+          <button
+            type="submit"
+            style="border: none; background: none; padding: 0"
+          >
+            <img
+              class="crossIcon"
+              src="/uploads/images/cross_icon.png"
+              alt="Remove"
+            />
+          </button>
+        </form>
+      </div>
+      <hr />
+      <% }; %>
+    </div>
+  </div>
+</body>

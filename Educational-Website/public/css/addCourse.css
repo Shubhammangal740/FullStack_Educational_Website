@@ -1,0 +1,84 @@
+/* Additional styles to ensure no content overlaps the navbar */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1f2746; /* Dark Blue Background */
+    color: #ffffff;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the start of the flex container */
+    box-sizing: border-box; /* Ensure padding and border are included in the total width and height */
+  }
+
+
+/* Adjust the container styling */
+.container2 {
+  background-color: #2b3553; /* Slightly lighter Dark Blue */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 600px;
+  margin-top: 4rem; /* Adjust margin to account for the navbar height */
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ffffff;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+}
+
+input[type="text"],
+textarea,
+select {
+    background-color: #3a4665; /* Even lighter Dark Blue */
+    color: #ffffff;
+}
+
+input[type="file"] {
+    padding: 0;
+    color: #ffffff;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    background-color: #4b577b; /* Highlighted Blue */
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: #ff6b6b; /* Red Button */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #ff5252; /* Darker Red on Hover */
+}

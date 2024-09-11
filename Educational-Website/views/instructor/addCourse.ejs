@@ -1,0 +1,63 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/addCourse.css" />
+<link rel="stylesheet" href="/css/styles.css" />
+<style>
+  body {
+    min-height: 100vh;
+  }
+</style>
+<body>
+  <%- include('../includes/navigation.ejs') %>
+  <div class="container2">
+    <h1>Add New Course</h1>
+    <form
+      action="/<% if (editing) { %>update-course<% } else { %>add-course<% } %>"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <div class="form-group">
+        <label for="title">Course Title</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          required
+          value="<% if (editing) { %><%= course.title %><% } %>"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Course Description</label>
+        <textarea id="description" name="description" rows="5" required>
+<% if (editing) { %><%= course.description %><% } %></textarea
+        >
+      </div>
+      <div class="form-group">
+        <label for="duration">Course Duration</label>
+        <input
+          type="text"
+          id="duration"
+          name="duration"
+          required
+          value="<% if (editing) { %><%= course.duration %><% } %>"
+        />
+      </div>
+      <div class="form-group">
+        <label for="level">Course Level</label>
+        <select id="level" name="level" required>
+          <option value="Beginner" <% if (editing && course.level === 'Beginner') { %>selected<% } %> >Beginner</option>
+          <option value="Intermediate" <% if (editing && course.level === 'Intermediate') { %>selected<% } %>>Intermediate</option>
+          <option value="Advanced" <% if (editing && course.level === 'Advanced') { %>selected<% } %>>Advanced</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="courseImage">Course Image</label>
+        <input type="file" id="courseImage" name="courseImage"/>
+      </div>
+      <% if (editing) { %>
+        <input type="hidden" value="<%= course._id %>" name="courseId">
+      <% } %>
+      <button type="submit" class="btn"><% if (editing) { %>Update Product<% } else { %>Add Product<% } %></button>
+    </form>
+  </div>
+  <script src="/main.js" charset="utf-8"></script>
+</body>

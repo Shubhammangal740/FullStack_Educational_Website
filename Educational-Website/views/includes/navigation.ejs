@@ -1,0 +1,34 @@
+<nav>
+  <div class="container nav__container">
+    <a href="/">
+      <h4>Educational-Source</h4>
+    </a>
+    <ul class="nav__menu">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/courses">Courses</a></li>
+      <li><a href="/contact">Contact</a></li>
+
+      <% if (!isAuthenticated) { %>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/user-signup">Signup</a></li>
+
+      <% } else { %> <% if (user.role !== 'user') { %>
+      <li><a href="/add-course">Add Course</a></li>
+      <li><a href="/instructor-course"> Instructor Course</a></li>
+      <% } %>
+      <li>
+        <form action="/logout" method="post">
+          <button type="submit">Logout</button>
+        </form>
+      </li>
+      <% } %>
+    </ul>
+    <button id="open-menu-btn" class="hide-above-1024">
+      <i class="uil uil-bars"></i>
+    </button>
+    <button id="close-menu-btn" class="hide-above-1024">
+      <i class="uil uil-multiply"></i>
+    </button>
+  </div>
+</nav>

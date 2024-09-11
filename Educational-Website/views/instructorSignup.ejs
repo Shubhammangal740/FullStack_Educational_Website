@@ -1,0 +1,64 @@
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/css/loginSignup.css" />
+<link rel="stylesheet" href="/css/styles.css" />
+<style>
+  form {
+    width: 25%;
+    margin-top: -0.5%;
+  }
+</style>
+<body>
+  <%- include('./includes/navigation.ejs') %>
+  <form action="/instructor-signup" method="POST" enctype="multipart/form-data">
+    <div>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+    </div>
+    <div>
+      <label for="email">Email Address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        aria-describedby="emailHelp"
+        required
+      />
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required />
+    </div>
+    <div>
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required />
+    </div>
+    <div>
+      <label for="role">Role</label>
+      <input type="text" id="role" name="role" required />
+    </div>
+
+    <div>
+      <label for="bio">Short Bio</label>
+      <textarea
+        id="bio"
+        name="bio"
+        rows="3"
+        placeholder="Tell us a bit about yourself..."
+        required
+      ></textarea>
+    </div>
+
+    <!-- Image Upload Section -->
+    <div>
+      <label for="instructorImage">Upload Profile Picture</label>
+      <input type="file" id="instructorImage" name="instructorImage" required />
+    </div>
+
+    <div class="form-check">
+      <input type="checkbox" id="check" name="terms" />
+      <label for="check">I agree to the terms and conditions</label>
+    </div>
+    <button type="submit">Sign Up as Instructor</button>
+  </form>
+  <script src="/main.js" charset="utf-8"></script>
+</body>
