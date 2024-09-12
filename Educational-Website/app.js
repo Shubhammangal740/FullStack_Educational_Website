@@ -9,8 +9,7 @@ const isAuth = require("./middleware/is-auth");
 const multer = require("multer");
 const { v4: uuidv4 } = require("uuid");
 
-const MONGO_URL =
-  "mongodb+srv://shubham:shubham123@harshproject.6zsvy.mongodb.net/lms-site?retryWrites=true&w=majority&appName=HarshProject";
+const MONGO_URL = "";
 
 const app = express();
 
